@@ -1,10 +1,10 @@
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse
 from .forms import PhoneNumberForm, VerificationCodeForm
 
 # Create your views here.
 class PhoneNumberView(CreateView):
-    template_name = 'login/phone_number.html'
+    template_name = 'phone_num.html'
     form_class = PhoneNumberForm
     success_url = reverse('login:verification_code')
 
@@ -13,8 +13,8 @@ class PhoneNumberView(CreateView):
         return super().form_valid(form)
 
 
-class VerificationCodeView(CreateView):
-    template_name = 'login/verification_code.html'
+class VerificationCodeView(UpdateView):
+    template_name = 'verification.html'
     form_class = VerificationCodeForm
     success_url = reverse('home')
 
