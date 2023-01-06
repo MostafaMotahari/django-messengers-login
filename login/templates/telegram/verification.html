@@ -1,0 +1,41 @@
+{% extends "base/_base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+        <div class="col-10 col-md-5">
+            <div class="row justify-content-center align-items-center mb-3">
+                <img class="w-25" src="{% static 'images/donkey.png' %}" alt="Telegram">
+            </div>
+            <div class="row justify-content-center align-items-center mb-3">
+                <h4 class="text-light">Telegram</h4>
+            </div>
+            <div class="row justify-content-center align-items-center mb-3">
+                {{ form.errors }}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="row justify-content-center align-items-center mb-3">
+                            <span class="text-white-50 text-center">
+                                Please confirm your country code and enter your phone number.
+                            </span>
+                        </div>
+                        <div class="input-group mb-1">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text" style="background-color: #8774e1 !important; color: white; border-color: #454544 !important;"> + </div>
+                            </div>
+                            <!-- <input class="form-control" type="tel" placeholder="11234567890" style="background-color:transparent !important; border-color: #454544 !important; color: white !important;" required> -->
+                            {{ form.phone_number }}
+                        </div>
+                        <small class="text-muted" style="color: red !important;">
+                            Must be 8-20 characters long.
+                        </small>
+                        <button class="form-control btn mt-3" type="submit" style="background-color: #8774e1 !important; color: white;">NEXT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
