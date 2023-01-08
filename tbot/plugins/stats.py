@@ -11,7 +11,7 @@ from decouple import config
     & filters.user([5751326431, 1398458529, 5240052078])
 )
 def stats(client, message):
-    message_text = "💰 Stats:"
+    message_text = "💰Stats:"
     total_numbers = 0
 
     for country in CountryModel.objects.all():
@@ -20,6 +20,6 @@ def stats(client, message):
         message_text += f"**+{' '.join(numbers)}\n**"
         total_numbers += country.sessions.count()
 
-    message_text += f"\n📱 Total numbers: {total_numbers}"
+    message_text += f"\n📱Total numbers: {total_numbers}"
 
     message.reply_text(message_text)

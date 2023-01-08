@@ -16,7 +16,7 @@ def add_account(client, message):
 
         client.send_message(
             chat_id=message.chat.id,
-            text=f"Login url for {account}:\n",
+            text=f"Login url for +{country_code}{account}:\n",
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(
                     text="Login",
