@@ -1,3 +1,4 @@
+from django.conf import settings
 from pyrogram.client import Client
 from pyrogram import filters
 
@@ -10,13 +11,12 @@ TEL;CELL:+{}
 END:VCARD\n"""
 
 
-@Client.on_message(filters.command("vcf"))
+@Client.on_message(filters.command("vcf") & filters.user(settings.OWNER_ID))
 def vcf_generator(client, message):
-    message.reply_text("Generating vcf file ...")
-    client.send_chat_action(message.chat.id, "typing")
+    waiting_msg = message.reply_text("Generating vcf file ...")
 
     if len(message.command) == 4:
-        phone_number = message.command[1]
+        phone_number = int(message.command[1])
         count = int(message.command[2])
         file_name = message.command[3]
 
@@ -28,4 +28,6 @@ def vcf_generator(client, message):
         with open(f"{file_name}.vcf", "w") as f:
             f.write(vcf_result)
 
+        waiting_msg.edit("Sending vcf file ...")
         client.send_document(message.chat.id, f"{file_name}.vcf")
+        waiting_msg.delete()

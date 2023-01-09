@@ -1,14 +1,11 @@
 from pyrogram.client import Client
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from decouple import config
+from . import costum_filters
+from . import costum_filters
 
 
-@Client.on_message(
-    filters.command("add")
-    & filters.chat(-1001859833244)
-    & filters.user([5751326431, 1398458529, 5240052078])
-)
+@Client.on_message(filters.command("add") & costum_filters.chat & costum_filters.user)
 def add_account(client, message):
     if len(message.command) == 3:
         country_code = message.command[1]

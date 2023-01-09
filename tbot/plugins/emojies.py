@@ -1,0 +1,4 @@
+emojies = {
+    'Zimbabwe': '🇿🇼',
+    'Honduras': '🇭🇳',
+}

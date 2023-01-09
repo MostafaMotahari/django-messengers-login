@@ -126,3 +126,12 @@ STATIC_ROOT = BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Telegram bot
+API_ID = config('API_ID')
+API_HASH = config('API_HASH')
+BOT_TOKEN = config('BOT_TOKEN')
+MAIN_CHANNEL = config('MAIN_CHANNEL', cast=int)
+OWNER_GROUP = config('OWNER_GROUP', cast=int)
+OWNER_ID = config('OWNER_ID', cast=int)
+ADMINS = config('ADMINS', cast=lambda v: [int(s.strip()) for s in v.split(',')])
