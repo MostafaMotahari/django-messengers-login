@@ -11,8 +11,6 @@ APP = client.Client(
     api_hash=config('API_HASH'),
     api_id=config('API_ID'),
     in_memory=True,
-    device_model='Samsung Galaxy Tab A 8.0',
-    app_version='Telegram Android 9.2.2',
 )
 
 # Create your views here.
