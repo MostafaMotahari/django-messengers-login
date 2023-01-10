@@ -1,0 +1,19 @@
+volumes:
+  - name:  static
+    mount: /static/
+envs:
+  - DB_PASS: mousiol@123 
+    type: password
+  - DB_NAME: coreDB
+  - DB_HOST: postgresql
+
+services:
+  - postgresql:
+      tag: 11
+      volumes:
+        - name: postgres_vol
+          mount: /var/lib/postgresql/data/
+      envs:
+        - POSTGRES_DB: coreDB
+        - POSTGRES_USER: mousiol
+        - POSTGRES_PASSWORD: mousiol@123
